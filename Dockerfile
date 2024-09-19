@@ -15,11 +15,5 @@ COPY . .
 # Expose the port the app runs on
 EXPOSE 3000
 
-# Install development dependencies
-RUN bun install --production=false
-
-# Run tests during the build process
-RUN bunx vitest --run
-
 # Start the application using Bun
 CMD ["bun", "src/app.ts"]
