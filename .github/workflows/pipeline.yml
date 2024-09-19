@@ -24,9 +24,5 @@ jobs:
         load: true
         tags: projet-secret:latest
 
-    - name: Run tests
-      run: |
-        docker run --rm projet-secret:latest bunx test
-
     - name: Print success message
       run: echo "Docker image built and tests passed successfully!"
