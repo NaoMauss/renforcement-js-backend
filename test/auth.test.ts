@@ -6,6 +6,10 @@ import { db } from "../src/db/index.js";
 import loginHandler from "../src/lambdas/auth/login.js";
 import registerHandler from "../src/lambdas/auth/register.js";
 
+process.env.VITE_HASH_SECRET = "14755185dbe788deff8d8295abb48d87cc773ebf86d8cf09bb8cf18806e610c7";
+process.env.VITE_JWT_SECRET = "59f0bb4bb554cd60c9a8aad456c260af47c4f776b382e87cc8d667b0ef6fb293";
+process.env.VITE_COOKIE_SECRET = "9f3a2f4a31d45459d50cfa89bc144bd5eb97baeb4db093ac3562af546ca323d8";
+
 // Mock the bcrypt module
 vi.mock("bcryptjs", async () => {
   const actual = await vi.importActual<typeof import("bcryptjs")>("bcryptjs");
