@@ -1,6 +1,7 @@
+import { compare } from "bcryptjs";
+
 /* eslint-disable node/prefer-global/process */
 import type { FastifyReply, FastifyRequest } from "fastify";
-import { compare } from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { eq } from "drizzle-orm";
 import { db } from "../../db/index.js";

@@ -1,6 +1,7 @@
+import { hash } from "bcryptjs";
+
 /* eslint-disable node/prefer-global/process */
 import type { FastifyReply, FastifyRequest } from "fastify";
-import { hash } from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { db } from "../../db/index.js";
 import { users } from "../../db/schema.js";
