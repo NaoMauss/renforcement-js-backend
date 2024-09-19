@@ -30,6 +30,9 @@ jobs:
       run: npm run test
       env:
         CI: true
+        VITE_HASH_SECRET: ${{ secrets.VITE_HASH_SECRET }}
+        VITE_JWT_SECRET: ${{ secrets.VITE_JWT_SECRET }}
+        VITE_COOKIE_SECRET: ${{ secrets.VITE_COOKIE_SECRET }}
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
