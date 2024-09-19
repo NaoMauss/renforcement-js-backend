@@ -8,7 +8,7 @@ import registerHandler from "../src/lambdas/auth/register.js";
 
 // Mock the bcrypt module
 vi.mock("bcryptjs", async () => {
-  const actual = await vi.importActual<typeof import("bcrypt")>("bcrypt");
+  const actual = await vi.importActual<typeof import("bcryptjs")>("bcryptjs");
   return {
     ...actual,
     hash: vi.fn().mockResolvedValue("mocked-hashed-password"),
