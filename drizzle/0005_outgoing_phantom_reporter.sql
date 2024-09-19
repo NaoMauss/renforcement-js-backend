@@ -1,0 +1,1 @@
+ALTER TABLE "user" ADD COLUMN "money" integer NOT NULL DEFAULT 0;

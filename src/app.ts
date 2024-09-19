@@ -1,18 +1,23 @@
 import process from "node:process";
 import Fastify from "fastify";
+import cookie from "@fastify/cookie";
+import { defineRoutes } from "./routes.js";
+
+const { VITE_COOKIE_SECRET } = process.env;
 
 const app = Fastify();
 
-app.get("/", async () => {
-  return "Hello World";
-});
-
 const start = async () => {
   try {
-    await app.listen({ port: 3000 });
+    defineRoutes(app);
+    await app.register(cookie, {
+      secret: VITE_COOKIE_SECRET,
+    });
+    await app.listen({ port: 3000, host: "0.0.0.0" });
   }
   catch (err) {
     app.log.error(err);
+    console.error(err);
     process.exit(1);
   }
 };
