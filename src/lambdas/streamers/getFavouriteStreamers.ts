@@ -74,6 +74,7 @@ const handler = async (req: FastifyRequest, res: FastifyReply) => {
         twitterLink: players.twitterLink,
         youtubeLink: players.youtubeLink,
         name: players.name,
+        profilePicture: players.profilePicture,
       })
       .from(usersToPlayers)
       .leftJoin(players, eq(usersToPlayers.playerId, players.id))
