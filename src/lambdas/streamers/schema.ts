@@ -33,6 +33,26 @@ export const getFavouriteSchema = z.array(
   }),
 );
 
+export const getFavouriteSchemaOutput = z.array(
+  z.object({
+    puuid: z.string(),
+    summonerId: z.string(),
+    riotId: z.string(),
+    pseudo: z.string(),
+    twitchLink: z.string().optional(),
+    twitterLink: z.string().optional(),
+    youtubeLink: z.string().optional(),
+    winrate: z.number(),
+    losses: z.number(),
+    leaguePoints: z.number(),
+    wins: z.number(),
+    tier: z.string(),
+    rank: z.string(),
+  }),
+);
+
+export type getFavouriteSchemaOutputType = z.infer<typeof getFavouriteSchemaOutput>;
+
 export const deleteStreamerReqSchema = z.object({
   params: z.object({
     playerId: z.string(),

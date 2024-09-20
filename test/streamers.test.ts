@@ -146,6 +146,9 @@ describe("streamers Lambda Handlers", () => {
               {
                 queueType: "RANKED_SOLO_5x5",
                 summonerId: "mocked-summoner-id",
+                tier: "GOLD",
+                rank: "I",
+                leaguePoints: 100,
                 wins: 10,
                 losses: 5,
               },
