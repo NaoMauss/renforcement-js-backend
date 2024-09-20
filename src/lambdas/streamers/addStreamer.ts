@@ -21,7 +21,7 @@ const handler = async (req: FastifyRequest, res: FastifyReply) => {
     const {
       params: { lolIgn, lolTag },
       cookies: { token },
-      body: { twitchLink, twitterLink, youtubeLink },
+      body: { twitchLink, twitterLink, youtubeLink, profilePicture },
     } = addStreamerReqSchema.parse(req);
 
     const userId = getUserIdFromToken(token);
@@ -65,6 +65,7 @@ const handler = async (req: FastifyRequest, res: FastifyReply) => {
         twitchLink: twitchLink ?? "",
         twitterLink: twitterLink ?? "",
         youtubeLink: youtubeLink ?? "",
+        profilePicture: profilePicture ?? "",
       }).returning();
 
     const playerId = newPlayer[0].id;

@@ -39,6 +39,7 @@ export const players = createTable("player", {
   twitchLink: varchar("twitch_link", { length: 256 }),
   twitterLink: varchar("twitter_link", { length: 256 }),
   youtubeLink: varchar("youtube_link", { length: 256 }),
+  profilePicture: varchar("profile_picture", { length: 256 }),
   createdAt: timestamp("created_at", { withTimezone: true })
     .default(sql`CURRENT_TIMESTAMP`)
     .notNull(),

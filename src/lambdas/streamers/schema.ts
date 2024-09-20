@@ -15,6 +15,7 @@ export const addStreamerReqSchema = z.object({
     twitchLink: z.string().optional(),
     twitterLink: z.string().optional(),
     youtubeLink: z.string().optional(),
+    profilePicture: z.string().optional(),
   }),
   cookies: z.object({
     token: z.string(),
@@ -30,6 +31,7 @@ export const getFavouriteSchema = z.array(
     twitchLink: z.string().optional(),
     twitterLink: z.string().optional(),
     youtubeLink: z.string().optional(),
+    profilePicture: z.string().optional(),
   }),
 );
 
@@ -42,6 +44,7 @@ export const getFavouriteSchemaOutput = z.array(
     twitchLink: z.string().optional(),
     twitterLink: z.string().optional(),
     youtubeLink: z.string().optional(),
+    profilePicture: z.string().optional(),
     winrate: z.number(),
     losses: z.number(),
     leaguePoints: z.number(),
