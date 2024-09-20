@@ -43,6 +43,8 @@ describe("streamers Lambda Handlers", () => {
           twitchLink: "https://twitch.tv/testuser",
           twitterLink: "https://twitter.com/testuser",
           youtubeLink: "https://youtube.com/testuser",
+          name: "TestUser#EUW",
+          profilePicture: "https://example.com/profile.png",
         },
       } as unknown as FastifyRequest;
 
@@ -130,6 +132,8 @@ describe("streamers Lambda Handlers", () => {
                   summonerId: "mocked-summoner-id",
                   riotId: "mocked-riot-id",
                   pseudo: "TestUser#EUW",
+                  name: "TestUser#EUW",
+                  profilePicture: "https://example.com/profile.png",
                 },
               ]),
             }),
@@ -201,6 +205,8 @@ describe("streamers Lambda Handlers", () => {
               summonerId: "mocked-summoner-id",
               riotId: "mocked-riot-id",
               pseudo: "TestUser#EUW",
+              name: "TestUser#EUW",
+              profilePicture: "https://example.com/profile.png",
             },
           ]),
         }),
@@ -286,6 +292,8 @@ describe("streamers Lambda Handlers", () => {
           twitchLink: "https://twitch.tv/newtestuser",
           twitterLink: "https://twitter.com/newtestuser",
           youtubeLink: "https://youtube.com/newtestuser",
+          name: "NewTestUser#EUW",
+          profilePicture: "https://example.com/newprofile.png",
         },
         cookies: {
           token: "mocked-token",

@@ -14,7 +14,8 @@ const handler = async (req: FastifyRequest, res: FastifyReply) => {
       body: { twitchLink, twitterLink, youtubeLink },
     } = addStreamerReqSchema.parse(req);
 
-    const [ playerToUpdate ] = await db.select({ id: players.id }).from(players).where(eq(players.pseudo, `${lolIgn}#${lolTag}`));
+    const decodedIgn = decodeURIComponent(lolIgn);
+    const [ playerToUpdate ] = await db.select({ id: players.id }).from(players).where(eq(players.pseudo, `${decodedIgn}#${lolTag}`));
 
     const { id: playerIdToUpdate } = playerToUpdate;
 

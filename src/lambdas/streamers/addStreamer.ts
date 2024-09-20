@@ -21,12 +21,13 @@ const handler = async (req: FastifyRequest, res: FastifyReply) => {
     const {
       params: { lolIgn, lolTag },
       cookies: { token },
-      body: { twitchLink, twitterLink, youtubeLink, profilePicture },
+      body: { twitchLink, twitterLink, youtubeLink, profilePicture, name },
     } = addStreamerReqSchema.parse(req);
 
     const userId = getUserIdFromToken(token);
+    const decodedIgn = decodeURIComponent(lolIgn);
 
-    const riotPlayerPuuidApiUrl = `https://${region}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${lolIgn}/${lolTag}`;
+    const riotPlayerPuuidApiUrl = `https://${region}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${decodedIgn}/${lolTag}`;
     const headers = { "X-Riot-Token": apiKey! };
     const responsePuuid = await fetch(riotPlayerPuuidApiUrl, { headers });
     const data = await responsePuuid.json() as puuidRequest;
@@ -58,10 +59,11 @@ const handler = async (req: FastifyRequest, res: FastifyReply) => {
     const newPlayer = playerAlreadyExist
       ? player
       : await db.insert(players).values({
-        pseudo: `${lolIgn}#${lolTag}`,
+        pseudo: `${decodedIgn}#${lolTag}`,
         riotId,
         puuid,
         summonerId,
+        name,
         twitchLink: twitchLink ?? "",
         twitterLink: twitterLink ?? "",
         youtubeLink: youtubeLink ?? "",

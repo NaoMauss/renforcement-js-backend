@@ -16,6 +16,7 @@ export const addStreamerReqSchema = z.object({
     twitterLink: z.string().optional(),
     youtubeLink: z.string().optional(),
     profilePicture: z.string().optional(),
+    name: z.string(),
   }),
   cookies: z.object({
     token: z.string(),
@@ -28,6 +29,7 @@ export const getFavouriteSchema = z.array(
     summonerId: z.string(),
     riotId: z.string(),
     pseudo: z.string(),
+    name: z.string(),
     twitchLink: z.string().optional(),
     twitterLink: z.string().optional(),
     youtubeLink: z.string().optional(),
@@ -41,6 +43,7 @@ export const getFavouriteSchemaOutput = z.array(
     summonerId: z.string(),
     riotId: z.string(),
     pseudo: z.string(),
+    name: z.string(),
     twitchLink: z.string().optional(),
     twitterLink: z.string().optional(),
     youtubeLink: z.string().optional(),

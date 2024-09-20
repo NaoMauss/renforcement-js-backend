@@ -32,6 +32,7 @@ export const users = createTable("user", {
 
 export const players = createTable("player", {
   id: serial("id").primaryKey(),
+  name: varchar("name", { length: 256 }).notNull(),
   pseudo: varchar("pseudo", { length: 256 }).notNull(),
   riotId: varchar("riot_id", { length: 256 }).unique().notNull(),
   puuid: varchar("puuid", { length: 256 }).unique().notNull(),
