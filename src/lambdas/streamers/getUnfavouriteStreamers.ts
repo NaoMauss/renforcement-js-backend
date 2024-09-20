@@ -42,6 +42,12 @@ const handler = async (req: FastifyRequest, res: FastifyReply) => {
         puuid: players.puuid,
         summonerId: players.summonerId,
         riotId: players.riotId,
+        name: players.name,
+        profilePicture: players.profilePicture,
+        pseudo: players.pseudo,
+        twitchLink: players.twitchLink,
+        twitterLink: players.twitterLink,
+        youtubeLink: players.youtubeLink,
       })
       .from(players)
       .where(not(inArray(players.id, favouritePlayerIds.map(fp => fp.playerId))));
