@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    environment:
+      - VITE_RIOT_API_KEY=${VITE_RIOT_API_KEY}
+      - VITE_RIOT_REGION=${VITE_RIOT_REGION}
+      - VITE_RIOT_REGION_V4=${VITE_RIOT_REGION_V4}
+      - VITE_JWT_SECRET=${VITE_JWT_SECRET}
+      - VITE_COOKIE_SECRET=${VITE_COOKIE_SECRET}
+      - VITE_DB_URL=${VITE_DB_URL}
+    expose:
+      - 3000
+
+  caddy:
+    image: caddy:2
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+volumes:
+  caddy_data:
+  caddy_config:
