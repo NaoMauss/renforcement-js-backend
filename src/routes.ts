@@ -20,6 +20,9 @@ export const defineRoutes = (app: FastifyInstance) => {
 
   app.post("/auth/register", register);
   app.post("/auth/login", login);
+  app.get("/auth/check", { preHandler: verifyToken }, (_, res) => {
+    res.send({ authenticated: true });
+  });
 
   app.get("/check-player/:lolIgn/:lolTag", checkPlayer);
   app.get("/streamers", { preHandler: verifyToken }, getFavouriteStreamers);
