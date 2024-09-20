@@ -66,6 +66,7 @@ const handler = async (req: FastifyRequest, res: FastifyReply) => {
 
     const favouritePlayers = await db
       .select({
+        id: players.id,
         puuid: players.puuid,
         summonerId: players.summonerId,
         riotId: players.riotId,

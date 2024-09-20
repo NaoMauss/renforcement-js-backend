@@ -25,6 +25,7 @@ export const addStreamerReqSchema = z.object({
 
 export const getFavouriteSchema = z.array(
   z.object({
+    id: z.number(),
     puuid: z.string(),
     summonerId: z.string(),
     riotId: z.string(),
@@ -39,6 +40,7 @@ export const getFavouriteSchema = z.array(
 
 export const getFavouriteSchemaOutput = z.array(
   z.object({
+    id: z.number(),
     puuid: z.string(),
     summonerId: z.string(),
     riotId: z.string(),

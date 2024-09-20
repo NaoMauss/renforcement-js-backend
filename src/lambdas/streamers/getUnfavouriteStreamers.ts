@@ -39,6 +39,7 @@ const handler = async (req: FastifyRequest, res: FastifyReply) => {
 
     const nonFavouritePlayers = await db
       .select({
+        id: players.id,
         puuid: players.puuid,
         summonerId: players.summonerId,
         riotId: players.riotId,
@@ -62,6 +63,7 @@ const handler = async (req: FastifyRequest, res: FastifyReply) => {
           ? (filteredPlayerInfo.wins / (filteredPlayerInfo.losses + filteredPlayerInfo.wins) * 100)
           : 100;
         return {
+          ...player,
           ...filteredPlayerInfo,
           winrate,
         };
